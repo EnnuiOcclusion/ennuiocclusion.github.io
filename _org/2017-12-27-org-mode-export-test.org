@@ -32,7 +32,7 @@ Using the org-export function to markdown, which in spacemacs is mapped to ~, e 
 
 * Third Try - Once More With Feeling
 
-Turns out the markdown export can work, we just need to coax the file into an something Jekyll wants to play with. There's a few tasks we need to accomplish, getting rid of the table of contents on export, introducing the front matter for the post, and changing the exported file extension.
+Turns out the markdown export can work, we just need to coax the file into something Jekyll wants to play with. There's a few tasks we need to accomplish, getting rid of the table of contents on export, introducing the front matter for the post, and changing the exported file extension.
 
 
 ** Removing the Table of Contents
@@ -58,11 +58,11 @@ This is all the metadata that Jekyll uses to title and format your blog post. It
   ,#+END_SRC
 #+END_SRC
 
-One of the very nice thing's about org-mode is how easy it is to pop in and configure these blocks for literate programming, all you need to do is hit ~< e TAB~ then enter the name of the language for that source block and you're good to go. You can then with spacemacs hit ~, '~ to pop open a new buffer that's in the major mode for the language of that source block. Hit ~, c~ to save your changes back into your original buffer.
+One of the very nice things about org-mode is how easy it is to pop in and configure these blocks for literate programming, all you need to do is hit ~< s TAB~ then enter the name of the language for that source block. In spacemacs you can then hit ~, '~ to pop open a new buffer that's in the major mode for the language of that source block. Hit ~, c~ to save your changes back into your original buffer.
 
-You're good to export with ~, e e m o~. <sup>You don't actually have to remember these commands they pop up in the mini-buffer as you start typing in spacemacs.</sup>
+You're good to export with ~, e e m o~. <sup>You don't actually have to remember these commands they pop up in the mini-buffer as you start typing.</sup>
 
-There is just one last problem with the front matter that needs to be fixed. There's about for spaces in front of each line from the exporter, you need to delete these for them to be properly parsed by Jekyll.
+There is just one last problem with the front matter that needs to be fixed. There's about four spaces in front of each line from the exporter, you need to delete these for them to be properly parsed by Jekyll.
 
 ** File Extension
 

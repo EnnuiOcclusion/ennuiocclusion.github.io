@@ -1,0 +1,27 @@
+#+BEGIN_HTML
+---
+layout: default
+title: Org-Mode for Jekyll
+---
+#+END_HTML
+* Org-Mode Structure
+
+I love using org-mode to structure ideas into documentation. I've just started this blog using Jekyll, but I'd for the posts to be written in org-mode rather the straight markup.
+
+This post is a test to understand how exactly I could go about doing that. Let's see how it goes.
+
+* Testing
+
+In order to test the site I need to build it. The code to do so looks a little like follows from the project root-directory.
+
+#+BEGIN_SRC bash
+  bundle exec jekyll build
+#+END_SRC
+
+* First Try - Do Nothing
+
+My first attempt at this is just to see if it might secretly be a default feature of Jekyll, a bit like how you can just stick org files of Github and have it automatically convert to Markdown. This does not work. Putting this file in the ~_posts~ folder does make it show up, but clicking the link begins downloading the actual org file. No Bueno.
+
+* Second Try - Using org-mode export to Markdown
+
+Using the org-export function to markdown, which in spacemacs is mapped to ~, e e~ you can export directly to markdown. This get's read by Jekyll as markdown, but gives browser default html, with none of our links or static site goodness. We must go deeper.

@@ -1,0 +1,120 @@
+#+TITLE: An Org to Jekyll Tour of GitHub
+#+LAYOUT: post
+#+DATE:   2017-12-27 18:38:15 -0800
+#+TAGS: meta org-mode jekyll
+#+liquid: enabled
+
+* Learning From Others
+
+In the last post I got a first look at what's required to get org-mode documents exported for Markdown that Jekyll likes. It's definitely work that's prime for some automation and would be a good learning experience for either Emacs-Lisp or Ruby to parse the documents correctly. Before I dive headfirst into doing this on my own I want to take a tour of other solutions people have come up with on GitHub and document their approaches.
+
+Let's ride.
+
+** [[https://github.com/eggcaker/jekyll-org][eggcaker/jekyll-org]]
+
+*** Overview
+
+This is a ruby script that gets run by Jekyll to convert the org files in the ~_posts~ folder to get converted directly by Jekyll. Seems very straight forward to set up, all you need to do is include the gem in ~_config.yml~ and ~Gemfile~.
+
+*** Features
+
+You can now use standard org-mode parameters to get all the front matter for your posts, for example:
+
+#+BEGIN_SRC org
+  ,#+TITLE: An Org to Jekyll Tour of Github
+  ,#+LAYOUT: post
+  ,#+TAGS: meta org-mode jekyll
+#+END_SRC
+
+You also get proper code syntax highlighting and liquid templating as long as you include this in your header:
+
+#+BEGIN_SRC org
+  ,#+liquid: enabled
+#+END_SRC
+
+*** Source Code
+
+Shockingly simple. Most of the action takes place in [[https://github.com/eggcaker/jekyll-org/blob/master/lib/jekyll-org.rb][/lib/jekyll-org.rb]]. It declares a new ~Converter~ subclass called ~OrgConverter~ then reads in any ~.org~ files and exports ~.html~.
+
+For the actual conversion logic it makes extensive use of the [[https://github.com/bdewey/org-ruby][org-ruby]] parser to extract html from the org-mode document. There's a little logic for the front matter conversion and a switch for the liquid_enabled tag. What's really interesting to me is this little snippet for reading if a date was embedded in Jekyll format into the filename:
+
+#+BEGIN_SRC ruby
+  DATELESS_FILENAME_MATCHER = %r!^(?:.+/)*(.*)(\.[^.]+)$!
+  DATE_FILENAME_MATCHER = %r!^(?:.+/)*(\d{4}-\d{2}-\d{2})-(.*)(\.[^.]+)$!
+  # set default slug
+  # copy and edit frmo jekyll:lib/jekyll/document.rb -- populate_title
+  if relative_path =~ DATE_FILENAME_MATCHER
+    date, slug, ext = Regexp.last_match.captures
+    modify_date(date)
+  elsif relative_path =~ DATELESS_FILENAME_MATCHER
+    slug, ext = Regexp.last_match.captures
+  end
+#+END_SRC
+
+That is one hell of a regex I just don't see myself ever sitting down to write. There is a beauty to turn it into a one-liner, but it's a problem I would definitely hand over to using split() or something similar on. Regular expressions are definitely still a from of dark-magic to me.
+
+*** Conclusion
+
+Seems like a well formed piece of software that solves all of the problems I was looking at.
+
+
+** [[ardumont/org2jekyll][https://github.com/ardumont/org2jekyll]]
+
+
+*** Overview
+
+This project uses Emacs-Lisp and the org-mode publishing system the parse through your files in an ~_org~ directory, then output HTML to the ~_posts~ directory which will get picked up by Jekyll.
+
+There's a lot more configuration required, but from that you can get more customization out of your configuration.
+
+*** Features
+
+We also get the nice auto-conversion of org-mode properties to the necessary YAML for the front matter. A task which the author is quite proud of accomplishing with only elisp.
+
+It looks like there are some nice options for templating. There is also an org2jekyll minor mode which introduces some nice shortcuts for things such as opening a new draft template and publishing all posts.
+
+*** Source Code
+
+Most of the action here is in [[https://github.com/ardumont/org2jekyll/blob/master/org2jekyll.el][org2jekyll.el]]. Taking a look around it seems like it takes a lot of elisp to get the basic logic of creating the front matter headers. There are a lot of cool convenience function though like:
+
+#+BEGIN_SRC emacs-lisp
+  (defun org2jekyll-init-current-buffer ()
+    "Given an existing buffer, add the needed metadata to make it a post or page."
+#+END_SRC
+
+*** Conclusion
+
+Seems to get similar results to jekyll-org. It's interesting how you can get such similar results, but take a completely different path to get there. It does also seem quite nice that you get extra features by integrating with the editor, instead of the compiler.
+
+** [[https://github.com/bmaland/happyblogger][bmaland/happyblogger]]
+
+*** Overview
+
+This project takes a similar setup to how I probably would have ended up hacking a solution together. Essentially you write your posts in org-mode, use the export option from org-mode to put HTML posts in your ~_posts~ directory, then you run a ~pre-process.rb~ script which makes the HTML into something that Jekyll can parse.
+
+*** Features
+
+Works very simple and well as long as you format everything the way that the author likes to format his posts.
+
+*** Source Code
+
+Most everything here is happening in the preprocessing script at [[https://github.com/bmaland/happyblogger/blob/master/pre-process.rb][pre-process.rb]]. It's a pretty straight forward ruby script that rips out all the metadata then inserts it as YAML for the front matter.
+
+*** Conclusion
+
+Nice to see someone was headed in the direction I was, but it becomes clear pretty quick why this isn't necessarily the best solution. The author himself admits that the solution, "can be generalized quite a bit."
+
+
+* Overall Thoughts
+
+I'm going to go with the jekyll-org solution for now. I like the simplicity of its configuration and use. It doesn't bother me the we're switching to Ruby from Emacs for this task, as we're already using Ruby extensively for Jekyll. We're just moving the task of preprocessing onto the compiler for these posts.
+
+I'm glad I took the time to poke around a bit and document what I found. I want to make a habit of doing source code reviews to find and steal good ideas from others.
+
+This was also a nice way to get some good exposure to Ruby code in production. The module system seems like a very nice way of extending functionality on existing code bases.
+
+
+* Next Steps
+
+- Get this installed and running.
+- Start writing blog posts about interesting things I want to work on instead of going on about the intricacies of parsing YAML out of org-mode.

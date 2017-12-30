@@ -16,18 +16,19 @@
 title: Ennui Occlusion
 email: morris.com@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Exploring the things that interest me. All input and consideration is greatly appreciated. Let\'s make something cool together.
+  Exploring the things that interest me. All input and consideration is greatly appreciated.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://www.ennuiocclusion.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ennuiocclusion
 github_username:  ennuiocclusion
+disqus_shortname: ennuiocclusion
 
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-org-mode-converter
+  - jekyll-org
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

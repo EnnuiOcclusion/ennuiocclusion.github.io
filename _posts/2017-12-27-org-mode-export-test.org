@@ -1,12 +1,8 @@
-#+OPTIONS: toc:nil
-#+BEGIN_EXPORT markdown
----
-layout: post
-title: Org-Mode for Jekyll
-date:   2017-12-27 18:38:15 -0800
-categories: meta
----
-#+END_EXPORT
+#+TITLE: Org-Mode for Jekyll
+#+LAYOUT: post
+#+DATE:   2017-12-27 18:38:15 -0800
+#+TAGS: meta org-mode jekyll
+#+liquid: enabled
 
 * Org-Mode Structure
 
@@ -45,17 +41,17 @@ This one's pretty simple and just consists of adding this line to the head of yo
 
 ** Introducing Front Matter
 
-This is all the metadata that Jekyll uses to title and format your blog post. It needs to be repeated verbatim at the front of the markdown document. We can use Org's export block functionality to do this with something this:
+This is all the metadata that Jekyll uses to title and format your blog post. It needs to be repeated verbatim at the front of the markdown document. We can use Org's src block functionality to do this with something this:
 
 #+BEGIN_SRC org
-  ,#+BEGIN_EXPORT markdown
+  ,#+BEGIN_SRC markdown
   ---
   layout: post
   title: Org-Mode for Jekyll
   date:   2017-12-27 18:38:15 -0800
   categories: meta
   ---
-  ,#+END_EXPORT
+  ,#+END_SRC
 #+END_SRC
 
 One of the very nice things about org-mode is how easy it is to pop in and configure these blocks for literate programming, all you need to do is hit ~< s TAB~ then enter the name of the language for that source block. In spacemacs you can then hit ~, '~ to pop open a new buffer that's in the major mode for the language of that source block. Hit ~, c~ to save your changes back into your original buffer.

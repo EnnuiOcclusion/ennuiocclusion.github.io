@@ -1,12 +1,8 @@
-#+OPTIONS: toc:nil
-#+BEGIN_SRC markdown
----
-layout: post
-title: Front Matter
-date:   2017-12-27 08:00:00 -0800
-categories: meta
----
-#+END_SRC
+#+TITLE: Front Matter
+#+LAYOUT: post
+#+DATE:   2017-12-27 08:00:00 -0800
+#+TAGS: meta
+#+liquid: enabled
 
 * Hello,
 

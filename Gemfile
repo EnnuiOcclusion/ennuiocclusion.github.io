@@ -18,7 +18,7 @@ gem "minima", "~> 2.0"
 # gem "github-pages", group: :jekyll_plugins
 
 # This is the org-mode convertor
-gem 'jekyll-org-mode-converter' , '>= 0.1.1'
+gem 'jekyll-org' , '>= 1.0.1'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do

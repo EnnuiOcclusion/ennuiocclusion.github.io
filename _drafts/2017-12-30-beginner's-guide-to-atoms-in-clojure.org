@@ -1,0 +1,51 @@
+#+TITLE: Beginner's Guide to Atoms in Clojure
+#+LAYOUT: post
+#+DATE:   2017-12-30 17:17:00 -0800
+#+TAGS: lisp clojure
+#+liquid: enabled
+
+State is the data which changes as a result of external input and is entirely antithetical to the entire being of functional programming. State management is a tricky topic and mutable state is probably the most common source of run-time bugs in programs.
+
+Clojure's answer to managing mutable state and remaining a functional language is just to remove mutability entirely. Everything is immutable! All variables will always return the same value.
+
+So then how do anything. How does a user interact with your program and change the variables that controlling what happens. For our considerations how does the user do that 60 times a second and not feel so much delay they feel nausea because the display is strapped to their face?
+
+Software Transactional Memory! We use what are known as atoms as little data-stores which deal with that god-awful state for us. As an outside observer we treat them like functions which hold variables for us.
+
+We define atoms like so:
+
+#+BEGIN_SRC clojure :exports both
+  (def my-memory-hole (atom {:text "Hello there!"}))
+#+END_SRC
+
+#+RESULTS:
+: #'user/my-memory-hole
+
+We can then get the contents of that atom by doing what's known as a deref:
+
+#+BEGIN_SRC clojure :exports both
+  @my-memory-hole
+#+END_SRC
+
+#+RESULTS:
+: | :text | Hello there! |
+
+If we want to modify the atom we can either wipe the whole thing out with reset:
+
+#+BEGIN_SRC clojure :exports both
+  (reset! my-memory-hole {:text "Hey sexy"})
+#+END_SRC
+
+#+RESULTS:
+: | :text | Hey sexy |
+
+Or we can modify the atom with a call to swap and pass in a function which takes in the previous value of the atom as its only argument:
+
+#+BEGIN_SRC clojure :exports both
+  (swap! my-memory-hole #(assoc % :text (str (:text %) " friendo!")))
+#+END_SRC
+
+#+RESULTS:
+: | :text | Hey sexy friendo! |
+
+And that's pretty much all you need to know to get going with atoms and mutable state.

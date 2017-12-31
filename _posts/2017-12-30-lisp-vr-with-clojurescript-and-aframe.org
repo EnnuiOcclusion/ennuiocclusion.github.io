@@ -1,0 +1,117 @@
+#+TITLE: Lisp VR with ClojureScript and A-Frame
+#+LAYOUT: post
+#+DATE:   2017-12-30 13:51:00 -0800
+#+TAGS: lisp vr clojurescript aframe
+#+liquid: enabled
+
+* Fun-ctional Programming
+
+Functional programming is a fantastic paradigm that I feel lacks a proper explanation for what makes it so fantastic. Most explanations for it begin very math heavy in the origins of lambda calculus. While I do think lambda calculus is one of the best ideas humanity has ever put forth, it is also lacking an elegant layman's explanation. That will have to be a topic for another post.
+
+For now I want to skip any introduction and just show how you can build and interact with virtual environments in a new way using ClojureScript. The final result of this project will be a basic template for starting a project that uses figwheel to serve and hot-swap ClojureScript code describing an experience which is then displayed in the browser.
+
+I'll document the process and changes to the code along the way.
+
+* Getting Started
+
+The first thing you're going to need to do is ensure you have Leiningen installed. This is the wonderful Clojure project manager, task runner, build manager and dependency installer all wrapped into one simple tool.
+
+If you don't have it installed, follow the instructions from [[https://leiningen.org/][leiningen.org]].
+
+Next we create a new project. Navigate a terminal to the directory where you want your project to live then enter:
+
+#+BEGIN_SRC bash
+  lein new figwheel aframe-clojurescript-template -- --reagent
+#+END_SRC
+
+This tells Leiningen to make a new project based off figwheel with reagent set up.
+
+[[https://github.com/bhauman/lein-figwheel][Figwheel]] is the insanely intuitive build tool that hot loads your ClojureScript code. As we work on our code and save it, the pieces of code which have changed will be compiled and sent to our browser where they will automatically be updated and the page will show our changes without us taking any action.
+
+If we are clever in how we work, this reloading won't alter any of the information in the browser about how we have altered the environment from within the browser. I am referring here to the idea of state. If we wrap all of our state in atoms, we have one convenient storage container for all the user-input we need to evaluate to create our scene at any point in time. 
+
+[[https://github.com/facebook/react][React]] is a very popular front-end framework developed by Facebook which handles state in an almost identical manner. It uses pure Javascript to do some very neat things and manipulate a webpage's [[https://en.wikipedia.org/wiki/Document_Object_Model][DOM]] to create user interfaces and reflect a changing state.
+
+[[https://github.com/reagent-project/reagent][Reagent]] is a light-weight ClojureScript interface to use React. It allows you to handle state with atoms, use all the features lisp which you love, and have all your modifications reflected elegantly on the page by React.
+
+We can test to make sure that the set builds and runs by starting figwheel as follows:
+
+#+BEGIN_SRC bash
+  lein figwheel
+#+END_SRC
+
+Now we've got all the pieces we need to start writing some code!
+
+* Messing with code
+
+  The first place we need to begin is in ~/resources/public/index.html~. This is the main HTML page that gets loaded by the browser, which then loads in our ClojureScript code. The only modification we need to make is to add in a link to the A-Frame source code in between the head tags like so:
+
+#+BEGIN_SRC html
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="css/style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" href="https://clojurescript.org/images/cljs-logo-icon-32.png">
+      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  </head>
+#+END_SRC
+
+Next we get into our main ClojureScript file. It is located at src/aframe_clojurescript_temple/core.cljs. Let's work out what should be in there from top to bottom.
+
+First we need to declare our namespace and list our dependencies.
+
+#+BEGIN_SRC clojurescript
+  (ns aframe-clojurescript-template.core
+    (:require [reagent.core :as reagent :refer [atom]]))
+#+END_SRC
+
+Then we enable printing to the console for logging purposes.
+
+#+BEGIN_SRC clojurescript
+  (enable-console-print!)
+#+END_SRC
+
+Next we declare our state holding atom. This will persist data between restarts and will control what is in the virtual environment.
+
+#+BEGIN_SRC clojurescript
+  (defonce app-state (atom {:scene {}}))
+#+END_SRC
+
+Let's define our reagent template, which will be rendered into our HTML. This should just read our scene off the app-state.
+
+#+BEGIN_SRC clojurescript
+  (defn reagent-template []
+    [:div
+     (:scene @app-state)])
+#+END_SRC
+
+Now we can define what we want our scene to look like. This should be a vector of A-Frame elements building up a scene. To begin with let's make a scene with a ball sitting on a flat plane.
+
+#+BEGIN_SRC clojurescript
+  (defn scene-template []
+    [:a-scene
+     [:a-sphere {:position "0 1.25 -5"
+                 :radius "1.25"
+                 :color "#EF2D5E"}]
+     [:a-plane {:position "0 0 -4"
+                :rotation "-90 0 0"
+                :width "4"
+                :height "4"
+                :color "#7BC8A4"}]])
+#+END_SRC
+
+We need to place this scene in our state.
+
+#+BEGIN_SRC clojurescript
+  (swap! app-state #(asooc % :scene scene-template))
+#+END_SRC
+
+And finally we tell reagent to render our template into the ~app~ element of the webpage.
+
+#+BEGIN_SRC clojurescript
+  (reagent/render-component [reagent-template]
+                            (. js/document (getElementById "app")))
+
+#+END_SRC
+
+Just like that we should have our basic scene.

@@ -1,43 +1,65 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Ennui Occlusion
-email: morris.com@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Exploring the things that interest me. All input and consideration is greatly appreciated.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://www.ennuiocclusion.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: ennuiocclusion
-github_username:  ennuiocclusion
-disqus_shortname: ennuiocclusion
-
 # Build settings
-markdown: kramdown
-theme: minima
 plugins:
+  - jemoji
+  - jekyll-paginate
   - jekyll-feed
   - jekyll-org
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Site settings
+title: "Ennui Occlusion"
+description: > # this means to ignore newlines until "email:"
+   Exploring ideas of interest.
+
+email: morris.com@gmail.com
+#blog logo
+logo: "/assets/images/eo_logo.jpg"
+float_logo: true # true, false (default)
+
+# blog cover
+cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
+
+name: 'Peter Morris'
+author: 'Peter Morris'
+author_image: "/assets/images/author.jpg"
+
+paginate:	5
+
+url: "http://ennuiocclusion.github.io.***.***" # the base hostname & protocol for your site
+baseurl: ""
+#used to display twitter cards
+twitter_handle: '@ennuiocclusion'
+
+#fill in disqus shortname to use disqus
+disqus: ennuiocclusion
+
+#google_analytics: UA-XXXXX-X
+
+# social icons and sharing options
+social:
+  - icon:	twitter
+    url:	https://twitter.com/ennuiocclusion
+    desc: Follow me on twitter
+    share_url: http://twitter.com/share
+    share_title: ?text=
+    share_link: "&amp;url="
+
+#  - icon:	facebook
+#    url:	https://facebook.com/???
+#    desc: Connect with me facebook
+#    share_url: https://www.facebook.com/sharer.php
+#    share_title: ?t=
+#    share_link: "&amp;u="
+
+  - icon:	github
+    url:	https://github.com/ennuiocclusion
+    desc:	Fork me on github
+    share_url:
+    share_title:
+    share_link:
+
+#  - icon:	google-plus
+#    url:	https://google.com/???
+#    desc:	Add me on google+
+#    share_url:
+#    share_title:
+#    share_link:

@@ -111,7 +111,12 @@ And finally we tell reagent to render our template into the ~app~ element of the
 #+BEGIN_SRC clojurescript
   (reagent/render-component [reagent-template]
                             (. js/document (getElementById "app")))
-
+                            
 #+END_SRC
 
 Just like that we should have our basic scene.
+
+
+* GitHub Repository
+
+Complete code available at [[https://github.com/EnnuiOcclusion/aframe-clojurescript-template]].

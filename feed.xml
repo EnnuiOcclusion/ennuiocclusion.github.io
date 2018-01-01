@@ -6,8 +6,8 @@
 </description>
     <link>http://ennuiocclusion.github.io.***.***/</link>
     <atom:link href="http://ennuiocclusion.github.io.***.***/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 31 Dec 2017 15:44:26 -0800</pubDate>
-    <lastBuildDate>Sun, 31 Dec 2017 15:44:26 -0800</lastBuildDate>
+    <pubDate>Sun, 31 Dec 2017 16:43:23 -0800</pubDate>
+    <lastBuildDate>Sun, 31 Dec 2017 16:43:23 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -85,9 +85,11 @@ lein figwheel
 &lt;pre class=&quot;src&quot; lang=&quot;clojurescript&quot;&gt;
 (reagent/render-component [reagent-template]
                           (. js/document (getElementById &amp;quot;app&amp;quot;)))
-
+                          
 &lt;/pre&gt;
 &lt;p&gt;Just like that we should have our basic scene.&lt;/p&gt;
+&lt;h1&gt;GitHub Repository&lt;/h1&gt;
+&lt;p&gt;Complete code available at &lt;a href=&quot;https://github.com/EnnuiOcclusion/aframe-clojurescript-template&quot;&gt;https://github.com/EnnuiOcclusion/aframe-clojurescript-template&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sat, 30 Dec 2017 13:51:00 -0800</pubDate>
         <link>http://ennuiocclusion.github.io.***.***/2017/12/30/lisp-vr-with-clojurescript-and-aframe.html</link>

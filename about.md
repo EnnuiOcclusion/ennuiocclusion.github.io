@@ -4,14 +4,13 @@ title: About
 permalink: /about/
 ---
 
-A medium inspired Jekyll blog theme. The basic idea came from the Ghost theme 
-[Readium 2.0](http://www.svenread.com/readium-ghost-theme/). I use mediator on my own blog [The Base](blog.base68.com).
+This is the personal website of Peter Morris.
 
-You can **download** the theme here:
-[https://github.com/dirkfabisch/mediator](https://github.com/dirkfabisch/mediator) 
+This is where I maintain my portfolio, project index, and blog.
 
-You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+I am very interested in creative technology which tells stories in inventive new ways while also paying strict attention to traditional crafts and qualities which have been developed. I believe that programming is both a craft and a community; an ongoing conversation about how we can best solve our problems. I love lisp and would be very happy to never leave Emacs while working all day.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+The site itself is hosted on GitHub pages as a Jekyll project. It began using the [Mediator](https://github.com/dirkfabisch/mediator) theme. Following the blog you can see how customization has taken place to build the site almost entirely out of Emacs using Org-Mode.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+Please feel free to contact me at [morris.com@gmail.com](mailto://morris.com@gmail.com).
+

@@ -12,6 +12,7 @@ For now I want to skip any introduction and just show how you can build and inte
 
 I'll document the process and changes to the code along the way.
 
+
 * Getting Started
 
 The first thing you're going to need to do is ensure you have Leiningen installed. This is the wonderful Clojure project manager, task runner, build manager and dependency installer all wrapped into one simple tool.
@@ -41,6 +42,7 @@ We can test to make sure that the set builds and runs by starting figwheel as fo
 #+END_SRC
 
 Now we've got all the pieces we need to start writing some code!
+
 
 * Messing with code
 
@@ -120,3 +122,5 @@ Just like that we should have our basic scene.
 * GitHub Repository
 
 Complete code available at [[https://github.com/EnnuiOcclusion/aframe-clojurescript-template]].
+
+

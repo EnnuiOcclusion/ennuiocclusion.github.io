@@ -4,10 +4,10 @@
     <title>Ennui Occlusion</title>
     <description>Exploring ideas of interest.
 </description>
-    <link>http://ennuiocclusion.github.io.***.***/</link>
-    <atom:link href="http://ennuiocclusion.github.io.***.***/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 02 Jan 2018 11:58:18 -0800</pubDate>
-    <lastBuildDate>Tue, 02 Jan 2018 11:58:18 -0800</lastBuildDate>
+    <link>https://ennuiocclusion.github.io//</link>
+    <atom:link href="https://ennuiocclusion.github.io//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 02 Jan 2018 12:21:59 -0800</pubDate>
+    <lastBuildDate>Tue, 02 Jan 2018 12:21:59 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -92,8 +92,8 @@ lein figwheel
 &lt;p&gt;Complete code available at &lt;a href=&quot;https://github.com/EnnuiOcclusion/aframe-clojurescript-template&quot;&gt;https://github.com/EnnuiOcclusion/aframe-clojurescript-template&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sat, 30 Dec 2017 13:51:00 -0800</pubDate>
-        <link>http://ennuiocclusion.github.io.***.***/2017/12/30/lisp-vr-with-clojurescript-and-aframe.html</link>
-        <guid isPermaLink="true">http://ennuiocclusion.github.io.***.***/2017/12/30/lisp-vr-with-clojurescript-and-aframe.html</guid>
+        <link>https://ennuiocclusion.github.io//2017/12/30/lisp-vr-with-clojurescript-and-aframe.html</link>
+        <guid isPermaLink="true">https://ennuiocclusion.github.io//2017/12/30/lisp-vr-with-clojurescript-and-aframe.html</guid>
         
         <category>lisp</category>
         
@@ -178,8 +178,8 @@ end
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 27 Dec 2017 18:38:15 -0800</pubDate>
-        <link>http://ennuiocclusion.github.io.***.***/2017/12/27/an-org-to-jekyll-tour-of-github.html</link>
-        <guid isPermaLink="true">http://ennuiocclusion.github.io.***.***/2017/12/27/an-org-to-jekyll-tour-of-github.html</guid>
+        <link>https://ennuiocclusion.github.io//2017/12/27/an-org-to-jekyll-tour-of-github.html</link>
+        <guid isPermaLink="true">https://ennuiocclusion.github.io//2017/12/27/an-org-to-jekyll-tour-of-github.html</guid>
         
         <category>meta</category>
         
@@ -232,8 +232,8 @@ categories: meta
 &lt;p&gt;Now that the basic idea has proven feasible and I know the basic tasks that need to be accomplished, let's build some tools to automate all this in a future post.&lt;/p&gt;
 </description>
         <pubDate>Wed, 27 Dec 2017 18:38:15 -0800</pubDate>
-        <link>http://ennuiocclusion.github.io.***.***/2017/12/27/org-mode-export-test.html</link>
-        <guid isPermaLink="true">http://ennuiocclusion.github.io.***.***/2017/12/27/org-mode-export-test.html</guid>
+        <link>https://ennuiocclusion.github.io//2017/12/27/org-mode-export-test.html</link>
+        <guid isPermaLink="true">https://ennuiocclusion.github.io//2017/12/27/org-mode-export-test.html</guid>
         
         <category>meta</category>
         
@@ -256,8 +256,8 @@ categories: meta
 &lt;p&gt;Thanks for taking the time to read this far. Let's make some cool things together.&lt;/p&gt;
 </description>
         <pubDate>Wed, 27 Dec 2017 08:00:00 -0800</pubDate>
-        <link>http://ennuiocclusion.github.io.***.***/2017/12/27/front-matter.html</link>
-        <guid isPermaLink="true">http://ennuiocclusion.github.io.***.***/2017/12/27/front-matter.html</guid>
+        <link>https://ennuiocclusion.github.io//2017/12/27/front-matter.html</link>
+        <guid isPermaLink="true">https://ennuiocclusion.github.io//2017/12/27/front-matter.html</guid>
         
         <category>meta</category>
         

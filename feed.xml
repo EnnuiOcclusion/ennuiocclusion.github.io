@@ -6,9 +6,58 @@
 </description>
     <link>https://ennuiocclusion.github.io/</link>
     <atom:link href="https://ennuiocclusion.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 02 Jan 2018 12:24:12 -0800</pubDate>
-    <lastBuildDate>Tue, 02 Jan 2018 12:24:12 -0800</lastBuildDate>
+    <pubDate>Wed, 03 Jan 2018 23:06:21 -0800</pubDate>
+    <lastBuildDate>Wed, 03 Jan 2018 23:06:21 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Beginner's Guide to Atoms in Clojure</title>
+        <description>&lt;p&gt;State is the data which outside the scope of a single function and is antithetical to the entire being of functional programming. State management is a tricky topic and mutable state is probably the most common source of run-time bugs in programs. Some of the most difficult tasks in computing are centered around the delicate manipulation of large state-machines like OpenGL. This is why Nvidia has such a thriving business of Game-Ready/trademark drivers.&lt;/p&gt;
+&lt;p&gt;Clojure's answer to managing mutable state and remaining a functional language is just to remove mutability entirely. Everything is immutable! All variables will always return the same value.&lt;/p&gt;
+&lt;p&gt;How is anything ever done if nothing ever changes? How does a user interact with your program and change the variables controlling what happens?&lt;/p&gt;
+&lt;p&gt;Software Transactional Memory! We use functions called atoms as little data-stores which deal with that god-awful state for us.&lt;/p&gt;
+&lt;p&gt;We define atoms like so:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(def my-memory-hole (atom {:text &amp;quot;Hello there!&amp;quot;}))
+&lt;/pre&gt;
+&lt;pre class=&quot;example&quot;&gt;
+#&amp;#39;user/my-memory-hole
+&lt;/pre&gt;
+&lt;p&gt;We can then get the contents of that atom by calling the deref function. We are going to do this so often that the Clojure language has the reader macro of &lt;code&gt;@&lt;/code&gt; assigned to calling this function.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+@my-memory-hole
+&lt;/pre&gt;
+&lt;pre class=&quot;example&quot;&gt;
+| :text | Hello there! |
+&lt;/pre&gt;
+&lt;p&gt;If we want to modify the atom we can either wipe the whole thing out with reset:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(reset! my-memory-hole {:text &amp;quot;Hey sexy&amp;quot;})
+&lt;/pre&gt;
+&lt;pre class=&quot;example&quot;&gt;
+| :text | Hey sexy |
+&lt;/pre&gt;
+&lt;p&gt;Or we can modify the atom with a call to swap and pass in a function which takes in the previous value of the atom as its only argument:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(swap! my-memory-hole #(assoc % :text (str (:text %) &amp;quot; friendo!&amp;quot;)))
+&lt;/pre&gt;
+&lt;pre class=&quot;example&quot;&gt;
+| :text | Hey sexy friendo! |
+&lt;/pre&gt;
+&lt;p&gt;And that's pretty much all you need to know to get going with atoms and mutable state. What's really amazing is how little you actually need to directly access atoms. For a game-engine environment the atom only needs to be read once at the start of every frame and written once at the end. All other manipulation of data can be handled through function threading, meaning you've removed state from all your actual business logic.&lt;/p&gt;
+&lt;p&gt;More on these threading macros to come!&lt;/p&gt;
+&lt;p&gt;-&amp;gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Jan 2018 22:42:00 -0800</pubDate>
+        <link>https://ennuiocclusion.github.io/2018/01/03/beginners-guide-to-atoms-in-clojure.html</link>
+        <guid isPermaLink="true">https://ennuiocclusion.github.io/2018/01/03/beginners-guide-to-atoms-in-clojure.html</guid>
+        
+        <category>lisp</category>
+        
+        <category>clojure</category>
+        
+        
+      </item>
     
       <item>
         <title>Lisp VR with ClojureScript and A-Frame</title>

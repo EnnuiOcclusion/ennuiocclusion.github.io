@@ -180,7 +180,7 @@ body {
     background-repeat: no-repeat; }
 
 .teaserimage {
-  height: 384px;
+  height: 256px;
   position: relative;
   overflow: hidden;
   background-color: #000; }

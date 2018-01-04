@@ -4,7 +4,7 @@
 #+TAGS: lisp clojure
 #+liquid: enabled
 
-State is the data which outside the scope of a single function and is antithetical to the entire being of functional programming. State management is a tricky topic and mutable state is probably the most common source of run-time bugs in programs. Some of the most difficult tasks in computing are centered around the delicate manipulation of large state-machines like OpenGL. This is why Nvidia has such a thriving business of Game-Ready/trademark drivers.
+State is the data which lies outside the scope of a single function and is antithetical to the entire being of functional programming. State management is a tricky topic and mutable state is probably the most common source of run-time bugs in programs. Some of the most difficult tasks in computing are centered around the delicate manipulation of large state-machines like OpenGL. This is why Nvidia has such a thriving business of Game-Ready™ drivers.
 
 Clojure's answer to managing mutable state and remaining a functional language is just to remove mutability entirely. Everything is immutable! All variables will always return the same value.
 

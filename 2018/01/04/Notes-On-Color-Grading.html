@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Notes On Color Grading</title>
+  <meta name="description" content="SourceThis is a set of notes I compiled for my friend who was interested in making his videos look better. I figured this would make for an interesting post, so I'm copying it as sent.Notes on Colo..." />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ennuiocclusion" />
+    <meta name="twitter:title" content="Notes On Color Grading" />
+    <meta name="twitter:image" content="https://ennuiocclusion.github.io/assets/images/eo_logo.jpg" />
+    
+    <meta name="twitter:description"  content="SourceThis is a set of notes I compiled for my friend who was interested in making his videos look better. I figured this would make for an interesting post, so I'm copying it as sent.Notes on Colo..." />
+    
+  
+  
+  <meta property="og:site_name" content="Ennui Occlusion" />
+  <meta property="og:title" content="Notes On Color Grading"/>
+  
+  <meta property="og:description" content="SourceThis is a set of notes I compiled for my friend who was interested in making his videos look better. I figured this would make for an interesting post, so I'm copying it as sent.Notes on Colo..." />
+  
+  <meta property="og:image" content="https://ennuiocclusion.github.io/assets/images/eo_logo.jpg" />
+  <meta property="og:url" content="https://ennuiocclusion.github.io/2018/01/04/Notes-On-Color-Grading.html" >
+  <meta property="og:type" content="blog" />
+  <meta property="article:published_time" content="2018-01-04T00:48:00-08:00">
+
+  <link rel="canonical" href="https://ennuiocclusion.github.io/2018/01/04/Notes-On-Color-Grading.html"/>
+  <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png"/>
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+    <!-- header start -->
+
+
+  <a href="https://ennuiocclusion.github.io" class="logo-readium"><span class="logo" style="background-image: url(/assets/images/eo_logo.jpg)"></span></a>
+
+<!-- header end -->
+
+    <main class="content" role="main">
+      <article class="post">
+        
+        <div class="noarticleimage">
+          <div class="post-meta">
+            <h1 class="post-title">Notes On Color Grading</h1>
+            <div class="cf post-meta-text">
+              <div class="author-image" style="background-image: url(/assets/images/author.jpg)">Blog Logo</div>
+              <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person"></h4>
+              on
+              <time datetime="2018-01-04T00:48:00-08:00">04 Jan 2018</time>
+              <!-- , tagged on <span class="post-tag-">, <a href="/tag/"></a></span> -->
+            </div>
+          </div>
+        </div>
+        
+        <section class="post-content">
+          <div class="post-reading">
+            <span class="post-reading-time"></span> read
+          </div>
+          <a name="topofpage"></a>
+          <h1>Source</h1>
+<p>This is a set of notes I compiled for my friend who was interested in making his videos look better. I figured this would make for an interesting post, so I'm copying it as sent.</p>
+<h1>Notes on Coloring</h1>
+<h2>Pipeline</h2>
+<p>Here's my typical node layout in Resolve if I'm doing a full color grade based off footage shot in S-Log2.</p>
+<ul>
+  <li>[ ] 3D-Lut - S-Log2 =&gt; Linear</li>
+  <li>[ ] Gain - .5
+    <ul>
+      <li>This removes the stop I overexpose shooting</li>
+    </ul>
+  </li>
+  <li>[ ] 3D-Lut - Liner =&gt; Cineon
+    <ul>
+      <li>Want to be in log space for creative adjustments</li>
+    </ul>
+  </li>
+  <li>[ ] Creative Grading</li>
+  <li>[ ] Filtering
+    <ul>
+      <li>Throw in a little dehaze/sharpening to taste</li>
+      <li>Maybe even a little grain if that's part of your feel</li>
+    </ul>
+  </li>
+  <li>[ ] Cineon =&gt; Alex-X2
+    <ul>
+      <li>This gets us to a Rec709 output color space, but with those sweet Alexa colors and highlight rolloff</li>
+    </ul>
+  </li>
+</ul>
+<h2>Tools</h2>
+<h3><a href="https://www.blackmagicdesign.com/products/davinciresolve/">Da Vinci Resolve</a></h3>
+<p>Awesome color grading software that is offered at an unfairly competitive price. A lot of features that you won't even know are there, hidden behind features which you will fight to get it to do what you want.</p>
+<p>Added a lot more editing and sound mixing tools recently, trying to become the only software you ever need to be in for a large domain of video projects.</p>
+<p>The addition of the OFX filters has really added in a lot of those good final look features that were missing and you needed to add after before. I'm personally in the middle of developing a very serious <i>thing</i> for the Dehaze filter.</p>
+<h4>Premiere</h4>
+<p>The Lumetri Color tools inside of premiere have gotten a lot better in recent updates. The controls are fast and flexible and can get a lot of good work done quickly, they just have hard limits where the stop working.
+  Secondary grades can get to be more trouble than they're worth very quickly.</p>
+<h2>Good Resources</h2>
+<h3><a href="https://cameramanben.github.io/LUTCalc/">LUTCalc</a></h3>
+<p>This page is amazing! Let's you create custom color space transformation LUTs for just about any camera.</p>
+<p>This is the basis of my workflow shooting with the FS700 and Odyssey 7Q. I come out of the camera is S-Log2 exposed about a stop over. Then I make a LUT on this site that takes out the stop and flips over Alexa X-2 output. This is how I one light and quick color correct things.</p>
+<p>Has links to a lot of other great technical resources if you want to read white papers and get down into the nitty gritty of color science.</p>
+<h3><a href="https://www.provideocoalition.com/aadams/">Art Adams' Blog</a></h3>
+<p>He's this cool camera-man/blogger guy who works <b>ALOT</b>. He does a really good job of explaining the technical software aspects of creating a look.</p>
+<p>He's the one who turned me on to LUTCalc and incorporating that into a on-set/one-light workflow. Definitely read through his stuff for more information.</p>
+<h3><a href="https://www.amazon.com/Print-Ansel-Adams-Photography/dp/0821221876">The Print - Ansel Adams</a></h3>
+<p>Ansel Adams is one of the pioneers of photography as an art form. His work is breathtaking and the tools he had available were unbelievably shitty compared to what we have available today.</p>
+<p>He did this really awesome book series where he talks a lot about his technical process. This book talks about his work in the darkroom, which is very much related to color grading today. This was unbelievably insightful about what it is you are actually trying to accomplish when you go in to produce a final image.</p>
+<p>Talks a lot about exposure and how you're attempting to recreate a facsimile of something you actually witnessed and how the creative use of a limited dynamic range can be a metaphor for the emotion behind an experience beyond what actually occured.</p>
+<h3><a href="https://www.fxphd.com/">fxphd</a></h3>
+<p>That website we always took classes from together. They've got some really good color grading stuff on here, it just costs money.</p>
+<p>They changed their pricing model pretty recently, so I think if you pay the subscription fee you can look at all the old courses they have.</p>
+
+        </section>
+        <footer class="post-footer">
+          <section class="share">
+            
+              
+                <a class="icon-twitter" href="http://twitter.com/share?text=Notes+On+Color+Grading&amp;url=https://ennuiocclusion.github.io/2018/01/04/Notes-On-Color-Grading"
+                  onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+                <i class="fa fa-twitter"></i><span class="hidden">twitter</span>
+                </a>
+              
+            
+              
+            
+          </section>
+        </footer>
+        <div class="bottom-teaser cf">
+          <div class="isLeft">
+            <h5 class="index-headline featured"><span>Written by</span></h5>
+            <section class="author">
+              <div class="author-image" style="background-image: url(/assets/images/author.jpg)">Blog Logo</div>
+              <h4>Peter Morris</h4>
+              <p class="bio"></p>
+              <hr>
+              <p class="published">Published <time datetime="2018-01-04 00:48">04 Jan 2018</time></p>
+            </section>
+          </div>
+          
+          <div class="isRight">
+            <h5 class="index-headline featured"><span>Supported by</span></h5>
+            <footer class="site-footer">
+              <section class="poweredby">Proudly published with <a href="http://jekyllrb.com"> Jekyll</a></section>
+              <a class="subscribe" href="/feed.xml"> <span class="tooltip"> <i class="fa fa-rss"></i> You should subscribe to my feed.</span></a>
+              <div class="inner">
+                <section class="copyright">All content copyright <a href="/">Peter Morris</a> &copy; 2018<br>All rights reserved.</section>
+              </div>
+            </footer>
+          </div>
+        </div>
+        
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'ennuiocclusion'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+      </article>
+    </main>
+    <div class="bottom-closer">
+      <div class="background-closer-image"  style="background-image: url(/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg)">
+        Image
+      </div>
+      <div class="inner">
+        <h1 class="blog-title">Ennui Occlusion</h1>
+        <h2 class="blog-description">Exploring ideas of interest.
+</h2>
+        <a href=/ class="btn">Back to Overview</a>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/assets/js/index.js"></script>
+<script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+<script>
+(function ($) {
+  "use strict";
+  $(document).ready(function(){
+
+    var $window = $(window),
+    $image = $('.post-image-image, .teaserimage-image');
+    
+      $window.on('scroll', function() {
+        var top = $window.scrollTop();
+
+        if (top < 0 || top > 1500) { return; }
+        $image
+          .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+          .css('opacity', 1-Math.max(top/700, 0));
+      });
+      $window.trigger('scroll');
+
+      var height = $('.article-image').height();
+      $('.post-content').css('padding-top', height + 'px');
+
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+         && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({ scrollTop: target.offset().top }, 500);
+            return false;
+          }
+        }
+      });
+
+  });
+}(jQuery));
+</script>
+
+
+  </body>
+</html>

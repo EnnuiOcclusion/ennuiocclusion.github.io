@@ -6,9 +6,78 @@
 </description>
     <link>https://ennuiocclusion.github.io/</link>
     <atom:link href="https://ennuiocclusion.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 04 Jan 2018 00:48:29 -0800</pubDate>
-    <lastBuildDate>Thu, 04 Jan 2018 00:48:29 -0800</lastBuildDate>
+    <pubDate>Thu, 04 Jan 2018 01:11:26 -0800</pubDate>
+    <lastBuildDate>Thu, 04 Jan 2018 01:11:26 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Notes On Color Grading</title>
+        <description>&lt;h1&gt;Source&lt;/h1&gt;
+&lt;p&gt;This is a set of notes I compiled for my friend who was interested in making his videos look better. I figured this would make for an interesting post, so I'm copying it as sent.&lt;/p&gt;
+&lt;h1&gt;Notes on Coloring&lt;/h1&gt;
+&lt;h2&gt;Pipeline&lt;/h2&gt;
+&lt;p&gt;Here's my typical node layout in Resolve if I'm doing a full color grade based off footage shot in S-Log2.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;[ ] 3D-Lut - S-Log2 =&amp;gt; Linear&lt;/li&gt;
+  &lt;li&gt;[ ] Gain - .5
+    &lt;ul&gt;
+      &lt;li&gt;This removes the stop I overexpose shooting&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;[ ] 3D-Lut - Liner =&amp;gt; Cineon
+    &lt;ul&gt;
+      &lt;li&gt;Want to be in log space for creative adjustments&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;[ ] Creative Grading&lt;/li&gt;
+  &lt;li&gt;[ ] Filtering
+    &lt;ul&gt;
+      &lt;li&gt;Throw in a little dehaze/sharpening to taste&lt;/li&gt;
+      &lt;li&gt;Maybe even a little grain if that's part of your feel&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;[ ] Cineon =&amp;gt; Alex-X2
+    &lt;ul&gt;
+      &lt;li&gt;This gets us to a Rec709 output color space, but with those sweet Alexa colors and highlight rolloff&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Tools&lt;/h2&gt;
+&lt;h3&gt;&lt;a href=&quot;https://www.blackmagicdesign.com/products/davinciresolve/&quot;&gt;Da Vinci Resolve&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Awesome color grading software that is offered at an unfairly competitive price. A lot of features that you won't even know are there, hidden behind features which you will fight to get it to do what you want.&lt;/p&gt;
+&lt;p&gt;Added a lot more editing and sound mixing tools recently, trying to become the only software you ever need to be in for a large domain of video projects.&lt;/p&gt;
+&lt;p&gt;The addition of the OFX filters has really added in a lot of those good final look features that were missing and you needed to add after before. I'm personally in the middle of developing a very serious &lt;i&gt;thing&lt;/i&gt; for the Dehaze filter.&lt;/p&gt;
+&lt;h4&gt;Premiere&lt;/h4&gt;
+&lt;p&gt;The Lumetri Color tools inside of premiere have gotten a lot better in recent updates. The controls are fast and flexible and can get a lot of good work done quickly, they just have hard limits where the stop working.
+  Secondary grades can get to be more trouble than they're worth very quickly.&lt;/p&gt;
+&lt;h2&gt;Good Resources&lt;/h2&gt;
+&lt;h3&gt;&lt;a href=&quot;https://cameramanben.github.io/LUTCalc/&quot;&gt;LUTCalc&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This page is amazing! Let's you create custom color space transformation LUTs for just about any camera.&lt;/p&gt;
+&lt;p&gt;This is the basis of my workflow shooting with the FS700 and Odyssey 7Q. I come out of the camera is S-Log2 exposed about a stop over. Then I make a LUT on this site that takes out the stop and flips over Alexa X-2 output. This is how I one light and quick color correct things.&lt;/p&gt;
+&lt;p&gt;Has links to a lot of other great technical resources if you want to read white papers and get down into the nitty gritty of color science.&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&quot;https://www.provideocoalition.com/aadams/&quot;&gt;Art Adams' Blog&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;He's this cool camera-man/blogger guy who works &lt;b&gt;ALOT&lt;/b&gt;. He does a really good job of explaining the technical software aspects of creating a look.&lt;/p&gt;
+&lt;p&gt;He's the one who turned me on to LUTCalc and incorporating that into a on-set/one-light workflow. Definitely read through his stuff for more information.&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&quot;https://www.amazon.com/Print-Ansel-Adams-Photography/dp/0821221876&quot;&gt;The Print - Ansel Adams&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Ansel Adams is one of the pioneers of photography as an art form. His work is breathtaking and the tools he had available were unbelievably shitty compared to what we have available today.&lt;/p&gt;
+&lt;p&gt;He did this really awesome book series where he talks a lot about his technical process. This book talks about his work in the darkroom, which is very much related to color grading today. This was unbelievably insightful about what it is you are actually trying to accomplish when you go in to produce a final image.&lt;/p&gt;
+&lt;p&gt;Talks a lot about exposure and how you're attempting to recreate a facsimile of something you actually witnessed and how the creative use of a limited dynamic range can be a metaphor for the emotion behind an experience beyond what actually occured.&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&quot;https://www.fxphd.com/&quot;&gt;fxphd&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;That website we always took classes from together. They've got some really good color grading stuff on here, it just costs money.&lt;/p&gt;
+&lt;p&gt;They changed their pricing model pretty recently, so I think if you pay the subscription fee you can look at all the old courses they have.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Jan 2018 00:48:00 -0800</pubDate>
+        <link>https://ennuiocclusion.github.io/2018/01/04/Notes-On-Color-Grading.html</link>
+        <guid isPermaLink="true">https://ennuiocclusion.github.io/2018/01/04/Notes-On-Color-Grading.html</guid>
+        
+        <category>color-grading</category>
+        
+        <category>editing</category>
+        
+        <category>film</category>
+        
+        
+      </item>
     
       <item>
         <title>Beginner's Guide to Atoms in Clojure</title>

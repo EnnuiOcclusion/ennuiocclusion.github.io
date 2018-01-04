@@ -6,13 +6,13 @@
 </description>
     <link>https://ennuiocclusion.github.io/</link>
     <atom:link href="https://ennuiocclusion.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 03 Jan 2018 23:12:32 -0800</pubDate>
-    <lastBuildDate>Wed, 03 Jan 2018 23:12:32 -0800</lastBuildDate>
+    <pubDate>Wed, 03 Jan 2018 23:15:34 -0800</pubDate>
+    <lastBuildDate>Wed, 03 Jan 2018 23:15:34 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
         <title>Beginner's Guide to Atoms in Clojure</title>
-        <description>&lt;p&gt;State is the data which outside the scope of a single function and is antithetical to the entire being of functional programming. State management is a tricky topic and mutable state is probably the most common source of run-time bugs in programs. Some of the most difficult tasks in computing are centered around the delicate manipulation of large state-machines like OpenGL. This is why Nvidia has such a thriving business of Game-Ready/trademark drivers.&lt;/p&gt;
+        <description>&lt;p&gt;State is the data which lies outside the scope of a single function and is antithetical to the entire being of functional programming. State management is a tricky topic and mutable state is probably the most common source of run-time bugs in programs. Some of the most difficult tasks in computing are centered around the delicate manipulation of large state-machines like OpenGL. This is why Nvidia has such a thriving business of Game-Ready™ drivers.&lt;/p&gt;
 &lt;p&gt;Clojure's answer to managing mutable state and remaining a functional language is just to remove mutability entirely. Everything is immutable! All variables will always return the same value.&lt;/p&gt;
 &lt;p&gt;How is anything ever done if nothing ever changes? How does a user interact with your program and change the variables controlling what happens?&lt;/p&gt;
 &lt;p&gt;Software Transactional Memory! We use functions called atoms as little data-stores which deal with that god-awful state for us.&lt;/p&gt;

@@ -1,0 +1,17 @@
+#+TITLE: Low Hanging VR Fruit
+#+LAYOUT: post
+#+DATE:   2017-12-30 17:17:00 -0800
+#+TAGS: lisp clojure
+#+liquid: enabled
+
+
+* Cheap Street Cred
+
+This is a list of dumb/simple projects that would be very doable projects that would have a large gag factor. A good laugh will at once make the technology used appear and disappear. So let's have some satirical demo pieces to try posting to Hacker News.
+
+** Star Wars Title Generator
+
+Users submit text, which is given the star wars title treatment in a VR environment. Entries are hashed so they can be returned to with just a link.
+
+** Synced Video Player
+** Mystery J'Accuse (werewolf type game)

@@ -10,5 +10,5 @@ I am very interested in creative technology which tells stories in inventive new
 
 The site itself is hosted on GitHub pages as a Jekyll project. It began using the [Mediator](https://github.com/dirkfabisch/mediator) theme. Following the blog you can see how customization has taken place to build the site almost entirely out of Emacs using Org-Mode.
 
-Please feel free to contact me at [morris.com@gmail.com](mailto://morris.com@gmail.com).
+Please feel free to contact me at [morris.com@gmail.com](mailto:morris.com@gmail.com).
 

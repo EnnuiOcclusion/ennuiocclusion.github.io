@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Git for Film-Making</title>
+  <meta name="description" content="There Has To Be A Better WaySince I started working in video production it has consistently amazed me how much of modern film-making is just being comfortable with computers. Before you can complet..." />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ennuiocclusion" />
+    <meta name="twitter:title" content="Git for Film-Making" />
+    <meta name="twitter:image" content="https://ennuiocclusion.github.io/assets/images/eo_logo.jpg" />
+    
+    <meta name="twitter:description"  content="There Has To Be A Better WaySince I started working in video production it has consistently amazed me how much of modern film-making is just being comfortable with computers. Before you can complet..." />
+    
+  
+  
+  <meta property="og:site_name" content="Ennui Occlusion" />
+  <meta property="og:title" content="Git for Film-Making"/>
+  
+  <meta property="og:description" content="There Has To Be A Better WaySince I started working in video production it has consistently amazed me how much of modern film-making is just being comfortable with computers. Before you can complet..." />
+  
+  <meta property="og:image" content="https://ennuiocclusion.github.io/assets/images/eo_logo.jpg" />
+  <meta property="og:url" content="https://ennuiocclusion.github.io/2018/01/11/git-for-filmmaking.html" >
+  <meta property="og:type" content="blog" />
+  <meta property="article:published_time" content="2018-01-11T10:48:00-08:00">
+
+  <link rel="canonical" href="https://ennuiocclusion.github.io/2018/01/11/git-for-filmmaking.html"/>
+  <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png"/>
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Linux+Libertine:400,400i,700,700i/Open+Sans:400,400i,700,700i">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+</head>
+
+  <body itemscope itemtype="http://schema.org/Article">
+    <!-- header start -->
+
+
+  <a href="https://ennuiocclusion.github.io" class="logo-readium"><span class="logo" style="background-image: url(/assets/images/eo_logo.jpg)"></span></a>
+
+<!-- header end -->
+
+    <main class="content" role="main">
+      <article class="post">
+        
+        <div class="noarticleimage">
+          <div class="post-meta">
+            <h1 class="post-title">Git for Film-Making</h1>
+            <div class="cf post-meta-text">
+              <div class="author-image" style="background-image: url(/assets/images/author.jpg)">Blog Logo</div>
+              <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person"></h4>
+              on
+              <time datetime="2018-01-11T10:48:00-08:00">11 Jan 2018</time>
+            </div>
+          </div>
+        </div>
+        
+        <section class="post-content">
+          <div class="post-reading">
+            <span class="post-reading-time"></span> read
+          </div>
+          <a name="topofpage"></a>
+          <h1>There Has To Be A Better Way</h1>
+<p>Since I started working in video production it has consistently amazed me how much of modern film-making is just being comfortable with computers. Before you can complete almost any task in a production pipeline you need a strong foundation of proper file management. Leading a project is like captaining an old wooden ship upon a treacherous voyage. Projects will mercilessly devolve into unyielding Krakens of broken dependencies if strict discipline is not maintained.</p>
+<p>I love discussing ideas for how things can be done better with anyone willing to listen. A close friend of mine attending Visual Effects school and explaining their pipeline opened my eyes to possibilities of having someone take command and require adherence to a policy. No task is ever more complicated than you can accomplish if you are able to consistently break all problems done into self dependent pieces matched to your available tool-set.</p>
+<p>Software development has many of the same issues a film project has. You have large visions to accomplish that must be tackled by a variety of specialists. You want to track progress over time. You want people to be able to work on different sections concurrently and have sane mergers of their progress into the final result.</p>
+<h1>A Deal So Crazy, They're Just Giving It Away</h1>
+<p>Some unbelievably useful tools have come from the Open Source movement. When really smart people are able to argue in the commons about the best way to tackle a problem you get some beautiful yet confounding answers. The staggering power of Emacs is matched only by the abstract brutality of its default appearance.</p>
+<p>The tool which was made to make other tools is known as Git. It was developed by Linus Torvalds &#8211;the mastermind of Linux&#8211; to manage combining the programming efforts of countless volunteers. He explains the project in this <a href="https://www.youtube.com/watch?v=4XpnKHJAok8">video</a>.</p>
+<p>Git can be a bit difficult to use because what it's actually doing behind the scenes is complicated. The software also respects that the person using it is a completely rational person capable of learning new ideas. It doesn't pull any punches and just requires some consistent use to get the fundamentals down. This <a href="https://blog.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/">post</a> does an excellent job of explaining the logic. This <a href="http://tom.preston-werner.com/2009/05/19/the-git-parable.html">post</a> does an incredible job of building up the pieces of Git and explains how such an odd beast came to be.</p>
+<h1>Shake 'N Bake</h1>
+<p>So how do we use this software for a film project. To begin with, you have a template project. We can use git to do this by making a repository that has all the blank folders we will need. We can save this project on GitHub, then every time we wish to start a new project just clone the repository.</p>
+<p>The code to do so looks thus:</p>
+<pre class="src" lang="bash">
+git clone https://github.com/EnnuiOcclusion/pipeline_template.git my_new_project
+</pre>
+<p>This creates the following directory structure:</p>
+<pre class="example">
+my_new_project/
+├── 00_Reference
+│   ├── Location
+│   ├── Scripts
+│   └── Sketches
+├── 01_Development
+│   ├── Boards
+│   ├── Renders
+│   ├── Research
+│   └── Working\ Files
+├── 02_Assets
+│   ├── 3D
+│   ├── Animations
+│   ├── Audio
+│   │   ├── Music
+│   │   ├── SFX
+│   │   ├── Scratch
+│   │   └── VO
+│   ├── Demos
+│   ├── Fonts
+│   ├── Footage
+│   ├── Icons
+│   ├── Images
+│   │   ├── Product\ Photography
+│   │   └── Stock\ Photos
+│   ├── Logos
+│   ├── PSD
+│   └── Vectors
+├── 03_3D
+│   ├── Assets
+│   ├── Autosave
+│   ├── Cache
+│   ├── Data
+│   ├── Images
+│   ├── Renders
+│   ├── Scenes
+│   └── sourceImages
+├── 04_2D
+│   ├── Renders
+│   │   ├── Animations
+│   │   ├── Frames
+│   │   ├── Print
+│   │   ├── Videos
+│   │   └── preComps
+│   └── Working\ Files
+│       ├── After\ Effects
+│       ├── Illustrator
+│       ├── InDesign
+│       ├── Keynote
+│       ├── Nuke
+│       │   └── shot1
+│       └── Photoshop
+├── 05_Edit
+│   ├── Premiere
+│   └── Renders
+├── 06_Delivery
+│   ├── Approval
+│   ├── Final
+│   └── Slide\ Deck
+├── 07_Breakdown
+│   ├── Renders
+│   └── Working\ Files
+└── 08_TEMP
+
+62 directories, 0 files
+</pre>
+<p>This is a very large project scaffold that is designed to cover a large number of edge cases. It was designed by some friends who were doing a wide variety of work which ranged from VR production through conference keynote product reveals.</p>
+<p>It should be self explanatory what goes where. Just save the files in the folder which matches your stage of production.</p>
+<h1>Set It And Forget It</h1>
+<p>Now we're ready for some Git magic. As you're working on your project and making progress you want to leave a record of what you've done and have the ability to return to previous versions. Anyone who's worked on a creative project has no doubt had a folder that looked like this.</p>
+<pre class="example">
+comps
+├── comp_final.psd
+├── comp_final_FINAL.psd
+├── comp_final_FINAL_v2.psd
+├── comp_final_FINAL_v2_newLogo.psd
+├── comp_final_FINAL_v3.psd
+├── comp_rough.psd
+└── comp_rough_v2.psd
+
+0 directories, 7 files
+</pre>
+<p>Unintuitive to follow at the very least. Git provides the mechanism through which we'll version our project. When we are working on a project we have what is known as the staging area. This is just all the directories and files below where our <code>.git</code> folder that contains our project exists. When we've reached a point we would like to have a version of our project remembered we perform what is known as a commit. We tell Git which files are part of this checkpoint &#8211;we <code>stage</code> files&#8211; then we <code>commit</code> them with a short message saying what these changes accomplished.</p>
+<p>Now you will have a single file which is the soul source of truth for that part of your project. If for any reason you would like to jump back to an old version of your project you will have a nice log describing all the changes to your project which you can jump back to at any point in time.</p>
+<p>Now it's just a matter of determining which files you actually wish to commit to version control. This is an area I'm still experimenting with. It's important to remember that files committed to a Git project will remain there and take up additional space in each new version that is committed.</p>
+<p>Easy candidates for version control are project files, scripts, and notes. Large files which will change often, like individual frames coming out of your renderer are probably best left not committed as you only care about the most recent versions; proxy h.264s of your renders should be committed along side their source projects.</p>
+<h1>Double The Freshness, Double The Fun</h1>
+<p>Now you have a sweet log-book/time-machine tracking your progress on your project. But it's time to get serious work done and you're calling in all the favors for help from your friends.</p>
+<p>If there is just a single file for everything how do you collaborate together?
+  Branches!</p>
+<p>At any point you can <code>checkout</code> a new Git branch. This allows you to freely make changes to any files without worrying about messing up the <code>master</code> copy of your project.</p>
+<p>Once you are happy with the changes you ask Git to <code>merge</code> the two branches. Git will attempt to sanely combine all changes into a single branch. For files which cannot be combined you are responsible for making the merges.</p>
+<p>Let's work through the example of a Premiere project I want my friend Dave to cut together a rough cut in. I create a branch for them called <code>daves-rough-cut</code>. They open up the single premiere project which already has my edit and all the logged footage in it. Dave creates a new sequence and edits away. When he's done and I'm ready to bring that sequence back into my project, I just import only his sequence into my master project and commit the changes. If work is going to be more involved than a single sequence it may be best to break that video off into its own Premiere project entirely. Either way simplicity and keeping a firm grasp on who is responsible for what is key.</p>
+<p>Branches are also very effective for when you just want to test out new ideas. Maybe you'd like to try incorporating a new software package into a project, but aren't sure about using it yet. Just make a new branch and make as many changes as you want. If you're unhappy with the results just switch back to your main branch and nothing ever happened. If you do like the results, then merge like there's no tomorrow.</p>
+<h1>So Easy A Caveman Could Do It</h1>
+<p>Performing these actions depends on the <a href="https://stackoverflow.com/questions/6976473/what-does-the-term-porcelain-mean-in-git#6978402">porcelain</a> you are using. Working directly from the command line gives you the most control, but is also the least user friendly. Figuring things out often comes down to <a href="https://en.wikipedia.org/wiki/RTFM">RTFM</a> while not even knowing what to look for. Luckily countless others have struggled before you and StackOverflow has got your back.</p>
+<p>There are a variety of good GUI options <a href="https://git-scm.com/downloads/guisavailable">available</a>. <a href="https://desktop.github.com/">GitHub Desktop</a> seems like the best candidate for someone new to the process.</p>
+<p>My personal tool of choice is <a href="https://magit.vc/">Magit</a>. It's remarkably intuitive to use if you are already doing a large amount of work inside of Emacs. It comes pre-installed with SpaceMacs &#8211; default binding of <code>&lt;spc&gt; g</code>.</p>
+<p>The documentation of any of these programs will have far more information on their use than I can provide now. I may follow up with another post showing at least my typical use in Magit.</p>
+
+        </section>
+        <footer class="post-footer">
+          <section class="share">
+            
+              
+                <a class="icon-twitter" href="http://twitter.com/share?text=Git+for+Film-Making&amp;url=https://ennuiocclusion.github.io/2018/01/11/git-for-filmmaking"
+                  onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+                <i class="fa fa-twitter"></i><span class="hidden">twitter</span>
+                </a>
+              
+            
+              
+            
+          </section>
+        </footer>
+        <div class="bottom-teaser cf">
+          <div class="isLeft">
+            <h5 class="index-headline featured"><span>Written by</span></h5>
+            <section class="author">
+              <div class="author-image" style="background-image: url(/assets/images/author.jpg)">Blog Logo</div>
+              <h4>Peter Morris</h4>
+              <p class="bio"></p>
+              <hr>
+              <p class="published">Published <time datetime="2018-01-11 10:48">11 Jan 2018</time></p>
+            </section>
+          </div>
+          
+          <div class="isRight">
+            <h5 class="index-headline featured"><span>Supported by</span></h5>
+            <footer class="site-footer">
+              <section class="poweredby">Proudly published with <a href="http://jekyllrb.com"> Jekyll</a></section>
+              <a class="subscribe" href="/feed.xml"> <span class="tooltip"> <i class="fa fa-rss"></i> You should subscribe to my feed.</span></a>
+              <div class="inner">
+                <section class="copyright">All content copyright <a href="/">Peter Morris</a> &copy; 2018<br>All rights reserved.</section>
+              </div>
+            </footer>
+          </div>
+        </div>
+        
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'ennuiocclusion'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+      </article>
+    </main>
+    <div class="bottom-closer">
+      <div class="background-closer-image"  style="background-image: url(/assets/images/space_background_image.jpg)">
+        Image
+      </div>
+      <div class="inner">
+        <h1 class="blog-title">Ennui Occlusion</h1>
+        <h2 class="blog-description">Exploring ideas of interest.
+</h2>
+        <a href=/ class="btn">Back to Overview</a>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/assets/js/index.js"></script>
+<script type="text/javascript" src="/assets/js/readingTime.min.js"></script>
+<script>
+(function ($) {
+  "use strict";
+  $(document).ready(function(){
+
+    var $window = $(window),
+    $image = $('.post-image-image, .teaserimage-image');
+    
+      $window.on('scroll', function() {
+        var top = $window.scrollTop();
+
+        if (top < 0 || top > 1500) { return; }
+        $image
+          .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+          .css('opacity', 1-Math.max(top/700, 0));
+      });
+      $window.trigger('scroll');
+
+      var height = $('.article-image').height();
+      $('.post-content').css('padding-top', height + 'px');
+
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+         && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({ scrollTop: target.offset().top }, 500);
+            return false;
+          }
+        }
+      });
+
+  });
+}(jQuery));
+</script>
+
+
+  </body>
+</html>

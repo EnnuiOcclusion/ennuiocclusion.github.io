@@ -1,0 +1,154 @@
+#+TITLE: Git for Film-Making
+#+LAYOUT: post
+#+DATE:   2018-01-11 10:48:00 -0800
+#+TAGS: git film-making pipeline 
+#+liquid: enabled
+
+* There Has To Be A Better Way
+
+Since I started working in video production it has consistently amazed me how much of modern film-making is just being comfortable with computers. Before you can complete almost any task in a production pipeline you need a strong foundation of proper file management. Leading a project is like captaining an old wooden ship upon a treacherous voyage. Projects will mercilessly devolve into unyielding Krakens of broken dependencies if strict discipline is not maintained.
+
+I love discussing ideas for how things can be done better with anyone willing to listen. A close friend of mine attending Visual Effects school and explaining their pipeline opened my eyes to possibilities of having someone take command and require adherence to a policy. No task is ever more complicated than you can accomplish if you are able to consistently break all problems done into self dependent pieces matched to your available tool-set.
+
+Software development has many of the same issues a film project has. You have large visions to accomplish that must be tackled by a variety of specialists. You want to track progress over time. You want people to be able to work on different sections concurrently and have sane mergers of their progress into the final result.
+
+* A Deal So Crazy, They're Just Giving It Away
+
+Some unbelievably useful tools have come from the Open Source movement. When really smart people are able to argue in the commons about the best way to tackle a problem you get some beautiful yet confounding answers. The staggering power of Emacs is matched only by the abstract brutality of its default appearance.
+
+The tool which was made to make other tools is known as Git. It was developed by Linus Torvalds --the mastermind of Linux-- to manage combining the programming efforts of countless volunteers. He explains the project in this [[https://www.youtube.com/watch?v=4XpnKHJAok8][video]].
+
+Git can be a bit difficult to use because what it's actually doing behind the scenes is complicated. The software also respects that the person using it is a completely rational person capable of learning new ideas. It doesn't pull any punches and just requires some consistent use to get the fundamentals down. This [[https://blog.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/][post]] does an excellent job of explaining the logic. This [[http://tom.preston-werner.com/2009/05/19/the-git-parable.html][post]] does an incredible job of building up the pieces of Git and explains how such an odd beast came to be.
+
+* Shake 'N Bake
+
+So how do we use this software for a film project. To begin with, you have a template project. We can use git to do this by making a repository that has all the blank folders we will need. We can save this project on GitHub, then every time we wish to start a new project just clone the repository.
+
+The code to do so looks thus:
+#+BEGIN_SRC bash
+  git clone https://github.com/EnnuiOcclusion/pipeline_template.git my_new_project
+#+END_SRC
+
+This creates the following directory structure:
+
+#+BEGIN_EXAMPLE
+my_new_project/
+├── 00_Reference
+│   ├── Location
+│   ├── Scripts
+│   └── Sketches
+├── 01_Development
+│   ├── Boards
+│   ├── Renders
+│   ├── Research
+│   └── Working\ Files
+├── 02_Assets
+│   ├── 3D
+│   ├── Animations
+│   ├── Audio
+│   │   ├── Music
+│   │   ├── SFX
+│   │   ├── Scratch
+│   │   └── VO
+│   ├── Demos
+│   ├── Fonts
+│   ├── Footage
+│   ├── Icons
+│   ├── Images
+│   │   ├── Product\ Photography
+│   │   └── Stock\ Photos
+│   ├── Logos
+│   ├── PSD
+│   └── Vectors
+├── 03_3D
+│   ├── Assets
+│   ├── Autosave
+│   ├── Cache
+│   ├── Data
+│   ├── Images
+│   ├── Renders
+│   ├── Scenes
+│   └── sourceImages
+├── 04_2D
+│   ├── Renders
+│   │   ├── Animations
+│   │   ├── Frames
+│   │   ├── Print
+│   │   ├── Videos
+│   │   └── preComps
+│   └── Working\ Files
+│       ├── After\ Effects
+│       ├── Illustrator
+│       ├── InDesign
+│       ├── Keynote
+│       ├── Nuke
+│       │   └── shot1
+│       └── Photoshop
+├── 05_Edit
+│   ├── Premiere
+│   └── Renders
+├── 06_Delivery
+│   ├── Approval
+│   ├── Final
+│   └── Slide\ Deck
+├── 07_Breakdown
+│   ├── Renders
+│   └── Working\ Files
+└── 08_TEMP
+
+62 directories, 0 files
+#+END_EXAMPLE
+
+This is a very large project scaffold that is designed to cover a large number of edge cases. It was designed by some friends who were doing a wide variety of work which ranged from VR production through conference keynote product reveals.
+
+It should be self explanatory what goes where. Just save the files in the folder which matches your stage of production.
+
+* Set It And Forget It
+
+Now we're ready for some Git magic. As you're working on your project and making progress you want to leave a record of what you've done and have the ability to return to previous versions. Anyone who's worked on a creative project has no doubt had a folder that looked like this.
+
+#+BEGIN_EXAMPLE
+comps
+├── comp_final.psd
+├── comp_final_FINAL.psd
+├── comp_final_FINAL_v2.psd
+├── comp_final_FINAL_v2_newLogo.psd
+├── comp_final_FINAL_v3.psd
+├── comp_rough.psd
+└── comp_rough_v2.psd
+
+0 directories, 7 files
+#+END_EXAMPLE
+
+Unintuitive to follow at the very least. Git provides the mechanism through which we'll version our project. When we are working on a project we have what is known as the staging area. This is just all the directories and files below where our ~.git~ folder that contains our project exists. When we've reached a point we would like to have a version of our project remembered we perform what is known as a commit. We tell Git which files are part of this checkpoint --we ~stage~ files-- then we ~commit~ them with a short message saying what these changes accomplished.
+
+Now you will have a single file which is the soul source of truth for that part of your project. If for any reason you would like to jump back to an old version of your project you will have a nice log describing all the changes to your project which you can jump back to at any point in time.
+
+Now it's just a matter of determining which files you actually wish to commit to version control. This is an area I'm still experimenting with. It's important to remember that files committed to a Git project will remain there and take up additional space in each new version that is committed.
+
+Easy candidates for version control are project files, scripts, and notes. Large files which will change often, like individual frames coming out of your renderer are probably best left not committed as you only care about the most recent versions; proxy h.264s of your renders should be committed along side their source projects.
+
+* Double The Freshness, Double The Fun
+
+Now you have a sweet log-book/time-machine tracking your progress on your project. But it's time to get serious work done and you're calling in all the favors for help from your friends.
+
+If there is just a single file for everything how do you collaborate together?
+Branches!
+
+At any point you can ~checkout~ a new Git branch. This allows you to freely make changes to any files without worrying about messing up the ~master~ copy of your project.
+
+Once you are happy with the changes you ask Git to ~merge~ the two branches. Git will attempt to sanely combine all changes into a single branch. For files which cannot be combined you are responsible for making the merges.
+
+Let's work through the example of a Premiere project I want my friend Dave to cut together a rough cut in. I create a branch for them called ~daves-rough-cut~. They open up the single premiere project which already has my edit and all the logged footage in it. Dave creates a new sequence and edits away. When he's done and I'm ready to bring that sequence back into my project, I just import only his sequence into my master project and commit the changes. If work is going to be more involved than a single sequence it may be best to break that video off into its own Premiere project entirely. Either way simplicity and keeping a firm grasp on who is responsible for what is key.
+
+Branches are also very effective for when you just want to test out new ideas. Maybe you'd like to try incorporating a new software package into a project, but aren't sure about using it yet. Just make a new branch and make as many changes as you want. If you're unhappy with the results just switch back to your main branch and nothing ever happened. If you do like the results, then merge like there's no tomorrow.
+
+* So Easy A Caveman Could Do It
+
+Performing these actions depends on the [[https://stackoverflow.com/questions/6976473/what-does-the-term-porcelain-mean-in-git#6978402][porcelain]] you are using. Working directly from the command line gives you the most control, but is also the least user friendly. Figuring things out often comes down to [[https://en.wikipedia.org/wiki/RTFM][RTFM]] while not even knowing what to look for. Luckily countless others have struggled before you and StackOverflow has got your back.
+
+There are a variety of good GUI options [[https://git-scm.com/downloads/guisavailable][available]]. [[https://desktop.github.com/][GitHub Desktop]] seems like the best candidate for someone new to the process.
+
+My personal tool of choice is [[https://magit.vc/][Magit]]. It's remarkably intuitive to use if you are already doing a large amount of work inside of Emacs. It comes pre-installed with SpaceMacs -- default binding of ~<spc> g~.
+
+The documentation of any of these programs will have far more information on their use than I can provide now. I may follow up with another post showing at least my typical use in Magit.

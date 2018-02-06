@@ -6,9 +6,178 @@
 </description>
     <link>https://ennuiocclusion.github.io/</link>
     <atom:link href="https://ennuiocclusion.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 12 Jan 2018 12:42:37 -0800</pubDate>
-    <lastBuildDate>Fri, 12 Jan 2018 12:42:37 -0800</lastBuildDate>
+    <pubDate>Tue, 06 Feb 2018 13:45:20 -0800</pubDate>
+    <lastBuildDate>Tue, 06 Feb 2018 13:45:20 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Logic Programming Silent Hill 3</title>
+        <description>&lt;h1&gt;Convergent Circles&lt;/h1&gt;
+&lt;p&gt;Every now and then you find an interesting overlap in diverse interests and it seems worth taking note of.&lt;/p&gt;
+&lt;h2&gt;Logic Programming&lt;/h2&gt;
+&lt;p&gt;I've been very interested in logic programming using MiniKannren after watching the presentation &lt;a href=&quot;https://www.youtube.com/watch?v=OyfBQmvr2Hc&quot;&gt;The Most Beautiful Program Ever Written&lt;/a&gt;. Logic programming requires a completely different mind-set going in. The functional approach at its most basic level consists of describing functions with which you can build up an answer. Logic program entails beginning with a set of unbound variables, which equate to any possible value, then constraing their possible values down until you have an answer.&lt;/p&gt;
+&lt;h2&gt;Silent Hill&lt;/h2&gt;
+&lt;p&gt;Silent Hill is a video game franchise published by Konami. While there is a lot to say about use and abuse of the license over time it is widely agreed that the original trilogy are masterpieces of the horror genre. Instead of going for cheap jump scares they make the player confront nightmarish horrors which are truly terrifying and confounding to comprehend.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;A small, beautiful little team of passionate rejects and failures got their chance to make a spooky game followed up by arguably the most brilliant and beautifully crafted survival horror game ever made.&lt;/p&gt;
+  &lt;p&gt;&amp;#8211; &lt;a href=&quot;https://www.youtube.com/watch?v=hycpdjjcnRE&quot;&gt;NakeyJakey&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Silent Hill games are built largely on two game mechanics. Combatting monsters and solving puzzles. At the start of every game the player must choose difficulty settings for these two components independently of each other. The puzzles in the game actually change their text based on how much of a mental challenge you want.&lt;/p&gt;
+&lt;p&gt;I think this incorporation of puzzles actually helps enhance the horror you experience quite well. You are forced to engage the game with the very rational and logical parts of your brain. The same parts of your brain which fail to understand the horrific logic put forward by a nightmarish hellscape.&lt;/p&gt;
+&lt;h1&gt;Programming Our Way Into The Hospital&lt;/h1&gt;
+&lt;p&gt;Now to bring these two concepts together. In Silent Hill 3 after arriving at the town of Silent Hill proper you are left to once again explore the Brookhaven Hospital you explored previously in Silent Hill 2. Things have changed just enough from your previous visit to leave you uncomfortable.&lt;/p&gt;
+&lt;p&gt;After making your way to the second floor and battling with sexy-zombie-bobble-head-nurses you are confronted with a locked door with a nine digit key pad and a riddle with its key combination.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The first is larger than the second;
+    the second twice the third;
+    the third smaller than the fourth;
+    the fourth is half the first.&lt;/p&gt;
+  &lt;p&gt;Four of the numbers
+    are not repeated
+    Three are not in the top row
+    Two are not in the right row
+    One of the numbers is the final key&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Deciphering this riddle requires following logical constraints and making relationships between the digits &amp;#8211; a problem perfectly in the domain of logic based programming! So without further ado, let's code!&lt;/p&gt;
+&lt;h1&gt;Setting Things Up&lt;/h1&gt;
+&lt;p&gt;First we make a new Clojure app with leiningen with:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;bash&quot;&gt;
+lein new app sh-logic
+&lt;/pre&gt;
+&lt;p&gt;Next, we need to include the core.logic library in our Clojure project. So we change our &lt;code&gt;project.clj&lt;/code&gt; file to have the following dependencies:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+:dependencies [[org.clojure/clojure &amp;quot;1.9.0&amp;quot;]
+               [org.clojure/core.logic &amp;quot;0.8.11&amp;quot;]]
+&lt;/pre&gt;
+&lt;p&gt;Install our dependencies:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;bash&quot;&gt;
+lein deps
+&lt;/pre&gt;
+&lt;p&gt;And finally we get our &lt;code&gt;src/sh_logic/core.clj&lt;/code&gt; ready to write logic code by using the &lt;code&gt;core.logic&lt;/code&gt; and requiring the &lt;code&gt;core.logic.fd&lt;/code&gt; libraries:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(ns sh-logic.core
+  (:gen-class)
+  (:refer-clojure :exclude [==])
+  (:use [clojure.core.logic])
+  (:require [clojure.core.logic.fd :as fd]))
+&lt;/pre&gt;
+&lt;h1&gt;Getting Logical&lt;/h1&gt;
+&lt;p&gt;What we're actually after here is a function we can call which will return the answer to our puzzle. It should ask the core.logic solver to find all values for q which could be our answer. So let's make that:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(defn solve-puzzle []
+  (run* [q]
+
+    ))
+&lt;/pre&gt;
+&lt;p&gt;All of our following code will go inside this run* statement.&lt;/p&gt;
+&lt;h2&gt;Defining q&lt;/h2&gt;
+&lt;p&gt;At this point q is an unbound variable which could be anything. That's not very helpful. So let's tell core.logic what q should be, a list of four variables holding our answer. We introduce the new variables representing each digit with &lt;code&gt;fresh&lt;/code&gt;. We then unify the list of these digits with q using &lt;code&gt;==&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(fresh [a b c d]
+  (== q [a b c d]))
+&lt;/pre&gt;
+&lt;p&gt;At this point running our program gives us the following output:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+([_0 _1 _2 _3])
+&lt;/pre&gt;
+&lt;p&gt;Roughly translated this means our answer is a list of four variables which could be anything.&lt;/p&gt;
+&lt;h2&gt;Limiting to a Finite Domain&lt;/h2&gt;
+&lt;p&gt;Now we know that our unbound variables can't be literally any value. They each have to be one of the values 1 through 9. We can apply this constraint to our answers with the &lt;code&gt;fd/in&lt;/code&gt; function. This lets us define a &lt;code&gt;fd/domain&lt;/code&gt;, which is a list of numbers that are possible values. We can then apply this constratint over our list of numbers with the &lt;code&gt;everyg&lt;/code&gt; function which lets us apply this constraint over a list of variables.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(everyg #(fd/in % (fd/domain 1 2 3 4 5 6 7 8 9)) [a b c d])
+&lt;/pre&gt;
+&lt;p&gt;Now the ouput of our function looks like this:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+([1 1 1 1] [2 1 1 1] [1 2 1 1] [3 1 1 1] [1 1 2 1] [2 2 1 1] [1 1 1 2] [1 3 1 1] [4 1 1 1] [2 1 2 1] [1 2 2 1] [1 1 1 3] ...)
+&lt;/pre&gt;
+&lt;p&gt;This is a list of every possible combination of four digit numbers. Very interesting!&lt;/p&gt;
+&lt;h2&gt;The first is larger than the second;&lt;/h2&gt;
+&lt;p&gt;Now we can start describing relationships amongst our variables. &lt;code&gt;core.logic.fd&lt;/code&gt; has a few different operator which map directly to the relationships of the riddle. The following is almost a direct trasncription of this line into code:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(fd/&amp;gt; a b)
+&lt;/pre&gt;
+&lt;p&gt;Now our output is as follows:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+([2 1 1 1] [3 1 1 1] [2 1 2 1] [2 1 1 2] [4 1 1 1] [3 2 1 1] ...)
+&lt;/pre&gt;
+&lt;p&gt;Notice that any value where the first digit is less than or equal to the second digit is gone.  We're finally getting somewhere.&lt;/p&gt;
+&lt;h2&gt;the second twice the third;&lt;/h2&gt;
+&lt;p&gt;We can once again use a &lt;code&gt;core.logic.fd&lt;/code&gt; constraint to directly transcribe this line:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(fd/* c 2 b)
+&lt;/pre&gt;
+&lt;p&gt;Our output is now pruned to satisfying these constraints:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+([3 2 1 1] [4 2 1 1] [3 2 1 2] [3 2 1 3] [5 2 1 1] [3 2 1 4] ...)
+&lt;/pre&gt;
+&lt;h2&gt;the third smaller than the fourth; the fourth is half the first.&lt;/h2&gt;
+&lt;p&gt;Now it's just the same gag for these next two lines, so let's get them in one go.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(fd/&amp;lt; c d)
+(fd/* d 2 a)
+&lt;/pre&gt;
+&lt;p&gt;This leads us to the following ouput:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+([4 2 1 2] [6 2 1 3] [8 2 1 4] [6 4 2 3] [8 4 2 4] [8 6 3 4])
+&lt;/pre&gt;
+&lt;p&gt;Aha! We're getting close.&lt;/p&gt;
+&lt;h2&gt;Four of the numbers are not repeated&lt;/h2&gt;
+&lt;p&gt;This calls for a new type of constraint &amp;#8211; &lt;code&gt;fd/distinct&lt;/code&gt;. This ensures that no two variables have the same value.&lt;/p&gt;
+&lt;p&gt;On a side note this constraint is the basis for an absurdly terse Sudoku solver where you simply split the puzzle into rows, columns, and squares then ensure they are all distinct.&lt;/p&gt;
+&lt;p&gt;For now, let's constrain our digits.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(fd/distinct [a b c d])
+&lt;/pre&gt;
+&lt;p&gt;Which leaves us dangerously close to a solution:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+([6 2 1 3] [8 2 1 4] [6 4 2 3] [8 6 3 4])
+&lt;/pre&gt;
+&lt;h2&gt;Three are not in the top row&lt;/h2&gt;
+&lt;p&gt;This line is particulary tricky in wording and difficult to implement. The top row are the values &lt;code&gt;1 2 3&lt;/code&gt;. This means that one number may or may not be 3 or less. It would be quite simple to at this point just write a predicate function and filter over the output of our logic program. I want to however solve this puzzle entirely using logic.&lt;/p&gt;
+&lt;p&gt;My current solution is as follows:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Create four new logic variables&lt;/li&gt;
+  &lt;li&gt;Attach each to one of the original four variables&lt;/li&gt;
+  &lt;li&gt;Ensure that the first is less than the other three, the second less than the next two, and the third less than the fourth&lt;/li&gt;
+  &lt;li&gt;Ensure that the second of these is greater than 3&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That is, sort the numbers then make sure that the three largest are greater than three. In code this is:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+(fresh [l1 l2 l3 l4]
+  (everyg #(membero % q) [l1 l2 l3 l4])
+  (fd/distinct [l1 l2 l3 l4])
+  (fd/&amp;lt; l1 l2)
+  (fd/&amp;lt; l1 l3)
+  (fd/&amp;lt; l1 l4)
+  (fd/&amp;lt; l2 l3)
+  (fd/&amp;lt; l2 l4)
+  (fd/&amp;lt; l3 l4)
+  (fd/&amp;gt; l2 3))
+&lt;/pre&gt;
+&lt;p&gt;This finally gives us a single solution:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;clojure&quot;&gt;
+([8 6 3 4])
+&lt;/pre&gt;
+&lt;p&gt;Entering this code opens the door and let's us continue on.&lt;/p&gt;
+&lt;h2&gt;All Together Now&lt;/h2&gt;
+&lt;p&gt;The complete code is available at &lt;a href=&quot;https://github.com/EnnuiOcclusion/sh-logic&quot;&gt;https://github.com/EnnuiOcclusion/sh-logic&lt;/a&gt;.&lt;/p&gt;
+&lt;h1&gt;Next Steps&lt;/h1&gt;
+&lt;p&gt;I like the creativity of that last solution, but I'd like something more expressive. I'd like to both generalize lvar sorting into a function called &lt;code&gt;sorto&lt;/code&gt; and also come up with a constraint which roughly translates to &amp;#8220;ensure that only one member of q is in the set [1 2 3]&amp;#8221;. Any help on this is appreciated. I'll update if I find either of these.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 11 Jan 2018 10:48:00 -0800</pubDate>
+        <link>https://ennuiocclusion.github.io/2018/01/11/logic-programming-silent-hill-3.html</link>
+        <guid isPermaLink="true">https://ennuiocclusion.github.io/2018/01/11/logic-programming-silent-hill-3.html</guid>
+        
+        <category>clojure</category>
+        
+        <category>logic</category>
+        
+        <category>silent-hill</category>
+        
+        <category>horror</category>
+        
+        
+      </item>
     
       <item>
         <title>Git for Film-Making</title>
